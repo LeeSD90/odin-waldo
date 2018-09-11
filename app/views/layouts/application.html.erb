@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid text-center">
+        <div class="navbar-brand mx-auto display-2" href="#"><%= yield(:nav_heading) %></div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
