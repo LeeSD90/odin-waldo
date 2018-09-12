@@ -9,3 +9,4 @@
 Puzzle.create(title: "Alib Baba And The Forty Thieves", image: "waldo1.jpg")
 Puzzle.create(title: "Horseplay In Troy", image: "waldo2.jpg")
 Puzzle.create(title: "The Deep-Sea Divers", image: "waldo3.jpg")
+Puzzle.create(title: "test", image: "waldo1.jpg")
