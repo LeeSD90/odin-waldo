@@ -1,2 +1,19 @@
-<h1>Puzzles#index</h1>
-<p>Find me in app/views/puzzles/index.html.erb</p>
+<% provide(:title, "Home") %>
+<% provide(:nav_heading, "Menu") %>
+<div class="container">
+  <div id="menu">
+    <h1 class="display-3">Select an Image to play!</h1>
+    <div class="menu-item">
+      <%= link_to image_tag("waldo1.jpg", :class => "preview") %>
+      <h5 class="display-4">Alib Baba And The Forty Thieves<h5>
+    </div>
+    <div class="menu-item">
+      <%= link_to image_tag("waldo2.jpg", :class => "preview") %>
+      <h5 class="display-4">Horseplay In Troy<h5>
+    </div>
+    <div class="menu-item">
+      <%= link_to image_tag("waldo3.jpg", :class => "preview") %>
+      <h5 class="display-4">The Deep-Sea Divers<h5>
+    </div>
+  </div>
+</div>
