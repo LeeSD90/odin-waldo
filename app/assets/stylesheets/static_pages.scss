@@ -5,3 +5,28 @@
 .center{
   text-align: center;
 }
+
+#menu {
+  flex: 1;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.menu-item {
+  width: 100%;
+  margin-top: 50px;
+  * {
+    display: inline;
+  }
+  img { 
+    border: 1px solid black;
+  }
+  h5 {
+    margin-left: 15px;
+    font-size: 1.8rem;
+  }
+}
+
+.preview {
+  width: 300px;
+}
