@@ -1,6 +1,10 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 .center{
   text-align: center;
@@ -37,11 +41,22 @@ h5 {
 }
 
 #game {
-  width: 1300px;
+  width: 1400px;
   margin-left: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
   transform: translateX(-50%);
 }
 
 .preview {
   width: 300px;
+}
+
+.characters {
+  display: flex;
+  justify-content: center;
+  .character {
+    height: 120px;
+    border: none;
+  }
 }
