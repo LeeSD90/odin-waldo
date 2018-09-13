@@ -1,2 +1,6 @@
-<h1>Puzzles#show</h1>
-<p>Find me in app/views/puzzles/show.html.erb</p>
+<% provide(:title, @puzzle.title) %>
+<% provide(:nav_heading, @puzzle.title + " Puzzle") %>
+<div class="container">
+  <h5 class="display-4">Try to find three characters!</h5>
+  <%= image_tag(@puzzle.image, id: "game") %>
+</div>
