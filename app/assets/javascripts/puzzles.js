@@ -1,5 +1,6 @@
 document.addEventListener("turbolinks:load", () => {
   let game = document.getElementById("game")
+
   if(game){
     const menu = document.getElementById("mini-menu");
 
@@ -13,7 +14,20 @@ document.addEventListener("turbolinks:load", () => {
 
     window.addEventListener("click", e => {
       if(menu.style.display === "block"){
-        menu.style.display === "none";
+        menu.style.display = "none";
+      }
+    })
+
+    game.addEventListener("click", e => {
+      if(menu.style.display === "block"){
+        menu.style.display = "none";
+      }
+    })
+
+    const list = [...menu.getElementsByTagName("li")];
+    list.forEach((li) => {
+      li.onclick = () => {
+        console.log("You clicked... " + li.innerHTML);
       }
     })
   }
