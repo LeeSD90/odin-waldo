@@ -52,6 +52,11 @@ h5 {
   width: 300px;
 }
 
+.box{
+  border: solid 3px red;
+  position: absolute;
+}
+
 .characters {
   display: flex;
   justify-content: center;
