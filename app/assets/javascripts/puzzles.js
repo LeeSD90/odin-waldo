@@ -18,7 +18,6 @@ function addBox(menu){
 
 function setListeners(){
   const menu = document.getElementById("mini-menu");
-  let clickX, clickY;
 
   game.addEventListener("contextmenu", e => {
     e.preventDefault();
@@ -43,8 +42,21 @@ function setListeners(){
   const list = [...menu.getElementsByTagName("li")];
   list.forEach((li) => {
     li.onclick = (e) => {
-      console.log("You clicked... " + li.innerHTML + " at... " + clickX + " " + clickY);
-      addBox(menu);
+      console.log("You clicked... " + li.innerHTML + " at... " + menu.style.left + " " + menu.style.top);
+      let url = new URL('http://localhost:3000/check')
+      let params = {
+        id: document.getElementById("game-container").dataset.id,
+        character: li.innerHTML,
+        x: menu.style.left,
+        y: menu.style.top
+      }
+      url.search = new URLSearchParams(params)
+
+      fetch(url).then(r => { r.json().then(r =>{
+        if(r){
+          addBox(menu)
+        }
+      })})
     }
   })
 }
