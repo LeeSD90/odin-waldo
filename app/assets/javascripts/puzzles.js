@@ -1,3 +1,6 @@
+//TODO return more information in json response
+//TODO user feedback
+
 document.addEventListener("turbolinks:load", () => {
   let game = document.getElementById("game")
   
