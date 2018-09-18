@@ -13,16 +13,17 @@ function addBox(menu){
   box.style.height = "80px";
   box.style.left = (parseInt(menu.style.left) - (parseInt(box.style.width))/2) + "px";
   box.style.top = (parseInt(menu.style.top) - (parseInt(box.style.height))/2) + "px";
-  document.body.appendChild(box);
+  document.getElementById("game-container").appendChild(box);
 }
 
 function setListeners(){
   const menu = document.getElementById("mini-menu");
+  let clickX, clickY;
 
   game.addEventListener("contextmenu", e => {
     e.preventDefault();
-    menu.style.left = e.pageX + "px";
-    menu.style.top = e.pageY + "px";
+    menu.style.left = e.offsetX + "px";
+    menu.style.top = e.offsetY + "px"; 
     menu.style.display = "block";
     return false;
   })
@@ -42,7 +43,7 @@ function setListeners(){
   const list = [...menu.getElementsByTagName("li")];
   list.forEach((li) => {
     li.onclick = (e) => {
-      console.log("You clicked... " + li.innerHTML);
+      console.log("You clicked... " + li.innerHTML + " at... " + clickX + " " + clickY);
       addBox(menu);
     }
   })
