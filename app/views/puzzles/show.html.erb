@@ -8,13 +8,15 @@
     <%= image_tag("wenda", class: "character") %>
     <%= image_tag("wizard_whitebeard", class: "character") %>
   </div>
-  <%= image_tag(@puzzle.image, id: "game") %>
-  <div id="mini-menu">
-    <ul class="options">
-      <li class="option">Wally</li>
-      <li class="option">Odlaw</li>
-      <li class="option">Wenda</li>
-      <li class="option">Wizard Whitebeard</li>
-    </ul>
+  <div id="game-container">
+    <%= image_tag(@puzzle.image, id: "game") %>
+    <div id="mini-menu">
+      <ul class="options">
+        <li class="option">Wally</li>
+        <li class="option">Odlaw</li>
+        <li class="option">Wenda</li>
+        <li class="option">Wizard Whitebeard</li>
+      </ul>
+    </div>
   </div>
 </div>
