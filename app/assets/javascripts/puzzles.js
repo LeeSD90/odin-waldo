@@ -1,3 +1,6 @@
+//TODO Add win condition
+//TODO Add timer
+
 document.addEventListener("turbolinks:load", () => {
   let game = document.getElementById("game")
   
