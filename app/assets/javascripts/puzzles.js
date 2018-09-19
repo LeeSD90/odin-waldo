@@ -1,4 +1,3 @@
-//TODO return more information in json response
 //TODO user feedback
 
 document.addEventListener("turbolinks:load", () => {
@@ -56,7 +55,8 @@ function setListeners(){
       url.search = new URLSearchParams(params)
 
       fetch(url).then(r => { r.json().then(r =>{
-        if(r){
+        console.log(r)
+        if(r.correct){
           addBox(menu)
         }
       })})

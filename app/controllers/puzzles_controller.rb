@@ -17,6 +17,8 @@ class PuzzlesController < ApplicationController
     if correct
       update_remaining(params[:character])
     end
+
+    correct = { correct: correct, name: params[:character] }
     render json:  correct
   end
 
