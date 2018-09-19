@@ -4,7 +4,7 @@ module PuzzlesHelper
   end
 
   def update_remaining(char)
-    session[:remaining].delete(char)
+    session[:remaining].delete(char.downcase)
   end
 
   def complete?
