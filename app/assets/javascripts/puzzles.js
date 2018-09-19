@@ -1,5 +1,3 @@
-//TODO user feedback
-
 document.addEventListener("turbolinks:load", () => {
   let game = document.getElementById("game")
   
@@ -16,6 +14,11 @@ function addBox(menu){
   box.style.left = (parseInt(menu.style.left) - (parseInt(box.style.width))/2) + "px";
   box.style.top = (parseInt(menu.style.top) - (parseInt(box.style.height))/2) + "px";
   document.getElementById("game-container").appendChild(box);
+}
+
+function remove(name){
+  let char = document.getElementById(name.toLowerCase());
+  char.style.display = "none";
 }
 
 function setListeners(){
@@ -44,7 +47,6 @@ function setListeners(){
   const list = [...menu.getElementsByTagName("li")];
   list.forEach((li) => {
     li.onclick = (e) => {
-      console.log("You clicked... " + li.innerHTML + " at... " + menu.style.left + " " + menu.style.top);
       let url = new URL('http://localhost:3000/check')
       let params = {
         id: document.getElementById("game-container").dataset.id,
@@ -55,9 +57,9 @@ function setListeners(){
       url.search = new URLSearchParams(params)
 
       fetch(url).then(r => { r.json().then(r =>{
-        console.log(r)
         if(r.correct){
           addBox(menu)
+          remove(r.name)
         }
       })})
     }
