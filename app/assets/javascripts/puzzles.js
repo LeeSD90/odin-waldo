@@ -17,6 +17,7 @@ function addBox(menu){
 }
 
 function remove(name){
+  console.log(name)
   let char = document.getElementById(name.toLowerCase());
   char.style.display = "none";
 }
@@ -50,7 +51,7 @@ function setListeners(){
       let url = new URL('http://localhost:3000/check')
       let params = {
         id: document.getElementById("game-container").dataset.id,
-        character: li.innerHTML,
+        character: li.innerHTML.replace(/ /g, "_"),
         x: menu.style.left,
         y: menu.style.top
       }
