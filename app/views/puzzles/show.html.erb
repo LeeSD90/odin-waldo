@@ -1,12 +1,12 @@
 <% provide(:title, @puzzle.title) %>
 <% provide(:nav_heading, @puzzle.title + " Puzzle") %>
 <div class="container">
-  <h5 class="display-4">Try to find these four characters!</h5>
+  <h5 class="display-4">Try to find these characters!</h5>
   <div class="characters">
-    <%= image_tag("waldo", class: "character") %>
-    <%= image_tag("odlaw", class: "character") %>
-    <%= image_tag("wenda", class: "character") %>
-    <%= image_tag("wizard_whitebeard", class: "character") %>
+    <%= image_tag("waldo", class: "character", id: "waldo") %>
+    <%= image_tag("odlaw", class: "character", id: "odlaw") %>
+    <%= image_tag("wenda", class: "character", id: "wenda") %>
+    <%= image_tag("wizard_whitebeard", class: "character", id: "wizard_whitebeard") %>
   </div>
   <div id="game-container" data-id="<%= @puzzle.id %>">
     <%= image_tag(@puzzle.image, id: "game") %>
