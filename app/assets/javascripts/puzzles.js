@@ -69,7 +69,7 @@ function setListeners(){
         if(r.correct){
           addBox(menu)
           remove(r.name)
-          message("Good job!")
+          message("Good job you got one!")
         }
         else{
           message("Try again!")
