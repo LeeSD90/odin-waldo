@@ -19,7 +19,13 @@ class PuzzlesController < ApplicationController
     end
 
     correct = { correct: correct, name: params[:character] }
-    render json:  correct
+
+    if complete?
+      correct[:complete] = true
+      render json: correct
+    else
+      render json:  correct
+    end
   end
 
 end

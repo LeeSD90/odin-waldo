@@ -1,4 +1,3 @@
-//TODO Add win condition
 //TODO Add timer
 
 document.addEventListener("turbolinks:load", () => {
@@ -70,6 +69,9 @@ function setListeners(){
           addBox(menu)
           remove(r.name)
           message("Good job you got one!")
+          if(r.complete){
+            message("Nice, you beat the puzzle!")
+          }
         }
         else{
           message("Try again!")
