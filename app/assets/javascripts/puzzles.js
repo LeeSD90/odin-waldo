@@ -20,9 +20,14 @@ function addBox(menu){
 }
 
 function remove(name){
-  console.log(name)
   let char = document.getElementById(name.toLowerCase());
   char.style.display = "none";
+}
+
+function message(s){
+  let message = document.getElementById("message");
+  message.style.display = "block";
+  message.innerHTML = s;
 }
 
 function setListeners(){
@@ -36,13 +41,13 @@ function setListeners(){
     return false;
   })
 
-  window.addEventListener("click", e => {
+  window.addEventListener("click", () => {
     if(menu.style.display === "block"){
       menu.style.display = "none";
     }
   })
 
-  game.addEventListener("click", e => {
+  game.addEventListener("click", () => {
     if(menu.style.display === "block"){
       menu.style.display = "none";
     }
@@ -50,7 +55,7 @@ function setListeners(){
 
   const list = [...menu.getElementsByTagName("li")];
   list.forEach((li) => {
-    li.onclick = (e) => {
+    li.onclick = () => {
       let url = new URL('http://localhost:3000/check')
       let params = {
         id: document.getElementById("game-container").dataset.id,
@@ -64,6 +69,10 @@ function setListeners(){
         if(r.correct){
           addBox(menu)
           remove(r.name)
+          message("Good job!")
+        }
+        else{
+          message("Try again!")
         }
       })})
     }
