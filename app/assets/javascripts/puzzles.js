@@ -25,7 +25,7 @@ function remove(name){
 
 function message(s){
   let message = document.getElementById("message");
-  message.style.display = "block";
+  message.style.visibility = "visible";
   message.innerHTML = s;
 }
 

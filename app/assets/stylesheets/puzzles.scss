@@ -94,7 +94,8 @@ h5 {
 }
 
 #message {
-  display: none;
+  visibility: hidden;
+  height: 34px;
   text-align: center;
   font-size: 1.8rem;
   font-weight: 600;
