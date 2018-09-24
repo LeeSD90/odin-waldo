@@ -22,6 +22,7 @@ class PuzzlesController < ApplicationController
 
     if complete?
       correct[:complete] = true
+      correct[:time] = Time.now - Time.parse(session[:time])
       render json: correct
     else
       render json:  correct

@@ -1,6 +1,7 @@
 module PuzzlesHelper
   def setup
     session[:remaining] = @puzzle.characters.map(&:name)
+    session[:time] = Time.now
   end
 
   def update_remaining(char)

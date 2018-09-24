@@ -70,7 +70,7 @@ function setListeners(){
           remove(r.name)
           message("Good job you got one!")
           if(r.complete){
-            message("Nice, you beat the puzzle!")
+            message(`Nice, you beat the puzzle in ${r.time} seconds!`)
           }
         }
         else{
