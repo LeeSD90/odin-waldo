@@ -1,4 +1,4 @@
-//TODO Add timer
+//TODO highscores
 
 document.addEventListener("turbolinks:load", () => {
   let game = document.getElementById("game")
