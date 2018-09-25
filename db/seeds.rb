@@ -12,6 +12,9 @@ p1.characters.create(:name => "waldo", :x => 1020, :y => 533)
 p1.characters.create(:name => "odlaw", :x => 1303, :y => 478)
 p1.characters.create(:name => "wenda", :x => 1212, :y => 167)
 p1.characters.create(:name => "wizard_whitebeard", :x => 143, :y => 567)
+p1.scores.create(:name => "Bob", :time => 54.5)
+p1.scores.create(:name => "Bob", :time => 10.234)
+p1.scores.create(:name => "Bob", :time => 723.123)
 
 
 p2 = Puzzle.create(title: "Horseplay In Troy", image: "waldo2.jpg")
