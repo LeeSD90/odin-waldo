@@ -60,7 +60,8 @@ function setListeners(){
         id: document.getElementById("game-container").dataset.id,
         character: li.innerHTML.replace(/ /g, "_"),
         x: menu.style.left,
-        y: menu.style.top
+        y: menu.style.top,
+        name: document.getElementById("name").value
       }
       url.search = new URLSearchParams(params)
 

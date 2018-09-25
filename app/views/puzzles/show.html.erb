@@ -1,6 +1,7 @@
 <% provide(:title, @puzzle.title) %>
 <% provide(:nav_heading, @puzzle.title + " Puzzle") %>
 <div class="container">
+  <div class="name">Enter your name: <input id="name" type="text"></div>
   <h5 class="display-4">Try to find these characters!</h5>
   <div class="characters">
     <%= image_tag("waldo", class: "character", id: "waldo") %>
