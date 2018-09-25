@@ -2,7 +2,7 @@ class CreateScores < ActiveRecord::Migration[5.2]
   def change
     create_table :scores do |t|
       t.string :name
-      t.time :time
+      t.time :float
       t.references  :puzzle
 
       t.timestamps
