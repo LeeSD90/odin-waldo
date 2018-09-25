@@ -5,12 +5,11 @@ class PuzzlesController < ApplicationController
 
   def show
     @puzzle = Puzzle.find(params[:id])
-    @scores = @puzzle.scores.all
+    @scores = @puzzle.scores.order(time: :asc).first(10)
     setup
   end
 
   def check
-    logger.debug params
     @puzzle = Puzzle.find(params[:id])
 
     correct = @puzzle.check(params[:character], params[:x], params[:y])
@@ -24,6 +23,11 @@ class PuzzlesController < ApplicationController
     if complete?
       correct[:complete] = true
       correct[:time] = Time.now - Time.parse(session[:time])
+      score = @puzzle.scores.order(time: :asc).last
+      if correct[:time] < score.time
+        name = params[:name].blank? ? "Unknown" : params[:name]
+        @puzzle.scores.create(:name => name, :time => correct[:time])
+      end
       render json: correct
     else
       render json:  correct
