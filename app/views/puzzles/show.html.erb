@@ -1,7 +1,6 @@
 <% provide(:title, @puzzle.title) %>
 <% provide(:nav_heading, @puzzle.title + " Puzzle") %>
 <div class="container">
-  <div class="name">Enter your name: <input id="name" type="text"></div>
   <h5 class="display-4">Try to find these characters!</h5>
   <div class="characters">
     <%= image_tag("waldo", class: "character", id: "waldo") %>
@@ -10,6 +9,11 @@
     <%= image_tag("wizard_whitebeard", class: "character", id: "wizard_whitebeard") %>
   </div>
   <div id="message"></div>
+  <%= form_for Score.new, url: {action: "add_score", params: {id: @puzzle.id}} do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+  <% end %>
   <div id="game-container" data-id="<%= @puzzle.id %>">
     <%= image_tag(@puzzle.image, id: "game") %>
     <div id="mini-menu">
