@@ -13,6 +13,8 @@ class PuzzlesController < ApplicationController
     @puzzle = Puzzle.find(params[:id])
     name = params[:score][:name].blank? ? "Unknown" : params[:score][:name]
     @puzzle.scores.create(:name => name, :time => session[:high_score])
+    flash[:success] = "High score saved!"
+    redirect_to @puzzle
   end
 
   def check
