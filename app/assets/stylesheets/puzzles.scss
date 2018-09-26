@@ -6,12 +6,18 @@ html, body {
   overflow-x: hidden;
 }
 
-.center{
+.center {
   text-align: center;
 }
 
 .container {
   margin-top: 50px;
+}
+
+.alert {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 #new_score {
