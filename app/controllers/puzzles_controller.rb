@@ -9,6 +9,12 @@ class PuzzlesController < ApplicationController
     setup
   end
 
+  def add_score
+    @puzzle = Puzzle.find(params[:id])
+    name = params[:score][:name].blank? ? "Unknown" : params[:score][:name]
+    @puzzle.scores.create(:name => name, :time => session[:high_score])
+  end
+
   def check
     @puzzle = Puzzle.find(params[:id])
 
@@ -23,15 +29,12 @@ class PuzzlesController < ApplicationController
     if complete?
       correct[:complete] = true
       correct[:time] = Time.now - Time.parse(session[:time])
-      score = @puzzle.scores.order(time: :asc).last
-      if correct[:time] < score.time
-        name = params[:name].blank? ? "Unknown" : params[:name]
-        @puzzle.scores.create(:name => name, :time => correct[:time])
+      lowest_highscore = @puzzle.scores.order(time: :asc).last
+      if correct[:time] < lowest_highscore.time
+        session[:high_score] = correct[:time]
       end
-      render json: correct
-    else
-      render json:  correct
     end
+    render json: correct
   end
 
 end
