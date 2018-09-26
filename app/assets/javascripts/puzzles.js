@@ -1,5 +1,3 @@
-//TODO highscores
-
 document.addEventListener("turbolinks:load", () => {
   let game = document.getElementById("game")
   
@@ -27,6 +25,11 @@ function message(s){
   let message = document.getElementById("message");
   message.style.visibility = "visible";
   message.innerHTML = s;
+}
+
+function enter_score(){
+  let new_score = document.getElementById("new_score")
+  new_score.style.display = "block";
 }
 
 function setListeners(){
@@ -60,8 +63,7 @@ function setListeners(){
         id: document.getElementById("game-container").dataset.id,
         character: li.innerHTML.replace(/ /g, "_"),
         x: menu.style.left,
-        y: menu.style.top,
-        name: document.getElementById("name").value
+        y: menu.style.top
       }
       url.search = new URLSearchParams(params)
 
@@ -70,8 +72,15 @@ function setListeners(){
           addBox(menu)
           remove(r.name)
           message("Good job you got one!")
+          console.log(r)
           if(r.complete){
-            message(`Nice, you beat the puzzle in ${r.time} seconds!`)
+            if(r.highscore){
+              message(`Nice, you beat the puzzle in ${r.time} seconds!`)
+            }
+            else{
+              message(`Nice, you beat the puzzle in ${r.time} seconds, which is a highscore!`)
+              enter_score()
+            }
           }
         }
         else{
