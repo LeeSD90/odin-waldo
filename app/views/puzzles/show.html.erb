@@ -12,7 +12,7 @@
   <%= form_for Score.new, url: {action: "add_score", params: {id: @puzzle.id}} do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
-    <%= f.submit %>
+    <%= f.submit "Submit High Score" %>
   <% end %>
   <div id="game-container" data-id="<%= @puzzle.id %>">
     <%= image_tag(@puzzle.image, id: "game") %>
