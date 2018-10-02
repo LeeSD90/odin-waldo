@@ -1,10 +1,27 @@
+let interval = 0;
+
 document.addEventListener("turbolinks:load", () => {
   let game = document.getElementById("game")
-  
   if(game){
     setListeners();
+    setTimer();
   }
 })
+
+function setTimer(){
+  let timer = document.getElementById("time");
+  let start = Date.now();
+  interval = setInterval(() => {
+    let diff = Date.now() - start;
+    timer.innerHTML = Math.floor(diff/1000).toString() + "." + Math.floor(diff % 1000).toString() + "s";
+  }, 1);
+}
+
+function stopTimer(time){
+  clearInterval(interval);
+  let timer = document.getElementById("time")
+  timer.innerHTML = time + "s";
+}
 
 function addBox(menu){
   let box = document.createElement("div");
@@ -72,14 +89,14 @@ function setListeners(){
           addBox(menu)
           remove(r.name)
           message("Good job you got one!")
-          console.log(r)
           if(r.complete){
             if(r.highscore){
-              message(`Nice, you beat the puzzle in ${r.time} seconds!`)
+              message(`Nice, you beat the puzzle in ${r.time.toFixed(3)} seconds!`)
             }
             else{
-              message(`Nice, you beat the puzzle in ${r.time} seconds, which is a highscore!`)
+              message(`Nice, you beat the puzzle in ${r.time.toFixed(3)} seconds, which is a highscore!`)
               enter_score()
+              stopTimer(r.time.toFixed(3))
             }
           }
         }
